@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 
 #open data set file as csv file
-file_content = pd.read_csv ("breast-cancer.csv",usecols=["diagnosis","radius_mean","texture_mean","perimeter_mean","area_mean","smoothness_mean"])
+file_content = pd.read_csv ("breast-cancer.csv")
 
 #concverting diagnoses to numbers to able to use in machine learning
 file_content["diagnosis"] = file_content['diagnosis'].map({'M':0,'B':1})
@@ -28,31 +28,3 @@ predicted_ouput  = breast_cancer_model.predict(input_test)
 preduction_accuracy = classification_report(output_test,predicted_ouput)
 print( preduction_accuracy)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# import matplotlib.pyplot as plt
-# #open data set as csv file
-# file_content = pd.read_csv ("breast-cancer.csv",usecols=['area_mean', 'diagnosis','compactness_mean'])
-#
-# #checking if chossrn features is effected
-# for index , dict_ in file_content.iterrows():
-#     if dict_['diagnosis'] == 'M':
-#         plt.scatter(dict_['area_mean'], dict_['compactness_mean'],c='b')
-#     else:
-#         plt.scatter(dict_['area_mean'], dict_['compactness_mean'],c='r')
-#
-# #plotting data
-# plt.title("breast cancer")
-# plt.show()
